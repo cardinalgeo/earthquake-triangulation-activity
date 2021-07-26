@@ -1,3 +1,10 @@
+# packages for accessing and processing seismic data
+from obspy.clients.fdsn import Client
+
+import folium # make maps
+from matplotlib import pyplot as plt # plotting
+import numpy as np # facilitated math
+
 class StationData: 
     def __init__(self, station_list, network, station, start_time, end_time): 
         self.network_code = network
@@ -66,7 +73,6 @@ class StationData:
         plt.show()
 
     def addToMap(self, map): 
-
         # add circle whose circumference indicates possible epicenter locations
         folium.Circle(
             location=[self.latitude, self.longitude], # set marker position
